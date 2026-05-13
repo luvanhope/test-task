@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { createSale } from "./CreateSaleSlice";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
-
 const CreateSale = () => {
   const dispatch = useDispatch();
 
@@ -72,45 +71,44 @@ const CreateSale = () => {
   };
 
   return (
-    <div className="sticky bottom-0 left-0 right-0 z-50 w-full bg-white/95 backdrop-blur-md border-t border-gray-200 py-10 px-4 shadow-[0_-5px_15px_rgba(0,0,0,0.05)]">
-      <div className="flex flex-col items-center gap-2 w-full max-w-[500px] mx-auto">
-        <div className="flex justify-between items-center w-full px-2">
-          <span className="text-[14px] font-medium text-slate-500">Итого:</span>
-          <span className="text-[18px] font-bold text-black">
-            {totalSum.toLocaleString()} ₽
-          </span>
+    <div className="sticky bottom-0 left-0 right-0 z-50 w-full bg-background/80 backdrop-blur-lg border-t border-border p-6 shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
+      <div className="max-w-[500px] mx-auto space-y-4">
+        <div className="flex justify-between items-end px-1">
+          <div className="flex flex-col">
+            <span className="text-sm font-medium text-muted-foreground">
+              К оплате:
+            </span>
+            <span className="text-3xl font-black tracking-tight tracking-tighter">
+              {totalSum.toLocaleString()}{" "}
+              <span className="text-xl font-bold">₽</span>
+            </span>
+          </div>
+          {success && (
+            <span className="text-green-500 font-bold animate-bounce">
+              ✅ Готово!
+            </span>
+          )}
         </div>
 
-        <div className="flex flex-row gap-2 w-full">
+        <div className="flex gap-3">
           <Button
-            onClick={() => handleCreateSale(true)}
-            disabled={loading || cartProducts.length === 0}
-            className="flex-1 h-[40px] bg-sky-500 hover:bg-sky-600 text-white rounded-[10px] text-[14px] font-semibold transition-all active:scale-[0.97]"
-          >
-            {loading ? "..." : "Создать"}
-          </Button>
-
-          <Button
-            onClick={() => handleCreateSale(false)}
-            disabled={loading || cartProducts.length === 0}
             variant="outline"
-            className="flex-1 h-[40px] bg-[#D1E9E6] hover:bg-[#c2deda] text-[#0F3D38] border-none rounded-[10px] text-[14px] font-semibold flex items-center justify-center gap-1 transition-all active:scale-[0.97]"
+            className="flex-1 h-12 text-base font-bold bg-secondary/50 border-none hover:bg-secondary"
+            disabled={loading || cartProducts.length === 0}
+            onClick={() => handleCreateSale(true)}
           >
-            <CheckCircle2 size={16} />
-            {loading ? "..." : "Провести"}
+            {loading ? "..." : "Создать продажу"}
+          </Button>
+
+          <Button
+            className="flex-1 h-12 text-base font-bold shadow-lg shadow-blue-500/20"
+            disabled={loading || cartProducts.length === 0}
+            onClick={() => handleCreateSale(false)}
+          >
+            <CheckCircle2 className="mr-2 size-5" />
+            {loading ? "..." : "Создать и провести"}
           </Button>
         </div>
-
-        {success && (
-          <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-green-600 text-white px-4 py-1 rounded-full shadow-lg text-[12px] font-medium animate-in fade-in zoom-in duration-300">
-            ✅ Успешно создано!
-          </div>
-        )}
-        {error && (
-          <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-red-600 text-white px-4 py-1 rounded-full shadow-lg text-[12px] font-medium animate-in fade-in zoom-in duration-300">
-            ❌ Ошибка данных
-          </div>
-        )}
       </div>
     </div>
   );
