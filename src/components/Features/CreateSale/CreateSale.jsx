@@ -68,10 +68,10 @@ const CreateSale = () => {
       <div className="max-w-[600px] mx-auto space-y-4">
         <div className="flex justify-between items-center px-1">
           <div className="flex flex-col">
-            <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-muted-foreground">
+            <span className="text-[10px] ml-[22px] sm:text-xs font-black uppercase tracking-widest text-muted-foreground">
               Итого к оплате
             </span>
-            <span className="text-2xl sm:text-3xl font-black tracking-tighter text-primary">
+            <span className="text-2xl ml-[22px] sm:text-3xl font-black tracking-tighter text-primary">
               {totalSum.toLocaleString()}{" "}
               <span className="text-lg sm:text-xl font-bold">₽</span>
             </span>
