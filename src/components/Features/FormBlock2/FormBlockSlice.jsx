@@ -104,7 +104,22 @@ const formSlice = createSlice({
         state.priceTypes = Array.isArray(action.payload.result)
           ? action.payload.result
           : [];
-      });
+      })
+      .addMatcher(
+        (action) => action.type.endsWith("/pending"),
+        (state) => {
+          state.loading = true;
+          state.error = null;
+        }
+      )
+      // Обработка ERROR для всех thunks сразу
+      .addMatcher(
+        (action) => action.type.endsWith("/rejected"),
+        (state, action) => {
+          state.loading = false;
+          state.error = action.payload || "Произошла ошибка при загрузке данных";
+        }
+      );
   },
 });
 
