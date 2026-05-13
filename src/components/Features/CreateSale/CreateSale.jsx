@@ -92,7 +92,7 @@ const CreateSale = () => {
             disabled={loading || cartProducts.length === 0}
             onClick={() => handleCreateSale(true)}
           >
-            {loading ? <Loader2 className="animate-spin" /> : "Черновик"}
+            {loading ? <Loader2 className="animate-spin" /> : "Создать"}
           </Button>
 
           <Button
@@ -105,7 +105,7 @@ const CreateSale = () => {
             ) : (
               <>
                 <CheckCircle2 className="mr-2 hidden sm:block" size={20} />
-                <span>Провести</span>
+                <span>Создать и провести</span>
               </>
             )}
           </Button>
