@@ -1,6 +1,12 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useDispatch, useSelector } from "react-redux";
 import { chekToken, setToken } from "./FormBlockSlice";
@@ -20,7 +26,9 @@ const FormBlock1 = () => {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="token" className="text-base">Ваш Token</Label>
+            <Label htmlFor="token" className="text-base">
+              Ваш Token
+            </Label>
             <Input
               id="token"
               className="h-12 text-base"
@@ -29,7 +37,7 @@ const FormBlock1 = () => {
               placeholder="00000000-0000-0000-0000-000000000000"
             />
           </div>
-          <Button 
+          <Button
             size="lg"
             className="w-full text-lg font-semibold h-12"
             onClick={() => dispatch(chekToken(token))}

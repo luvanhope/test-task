@@ -3,7 +3,13 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, setText } from "./ProductsSlice";
 import { addToCart } from "../Cart/CartSlice";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { FiSearch, FiPlus } from "react-icons/fi";
@@ -25,7 +31,7 @@ const Products = () => {
   if (!isConfirmed) return null;
 
   const filtered = (productsData || []).filter((product) =>
-    product.name?.toString().toLowerCase().includes(searchedText.toLowerCase())
+    product.name?.toString().toLowerCase().includes(searchedText.toLowerCase()),
   );
 
   return (
@@ -37,7 +43,7 @@ const Products = () => {
             Поиск и добавление номенклатуры в заказ
           </CardDescription>
         </CardHeader>
-        
+
         <CardContent className="space-y-4">
           <div className="relative">
             <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
@@ -67,7 +73,9 @@ const Products = () => {
                         {product.name}
                       </span>
                       <span className="text-muted-foreground font-medium">
-                        {product.prices ? `${Number(product.prices).toLocaleString()} ₽` : "Цена не указана"}
+                        {product.prices
+                          ? `${Number(product.prices).toLocaleString()} ₽`
+                          : "Цена не указана"}
                       </span>
                     </div>
 
@@ -82,7 +90,7 @@ const Products = () => {
                             productPrice: product.prices,
                             productName: product.name,
                             count: 1,
-                          })
+                          }),
                         )
                       }
                     >
