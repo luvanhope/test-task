@@ -13,7 +13,7 @@ export const chekToken = createAsyncThunk(
   async (token, { rejectWithValue }) => {
     try {
       const res = await axios.get(
-        `https://app.tablecrm.com/api/v1/contragents?token=${token}`,
+        `https://app.tablecrm.com/api/v1/contragents/?token=${token}`,
       );
 
       return res.data;
