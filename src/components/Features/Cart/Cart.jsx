@@ -25,7 +25,8 @@ const Cart = () => {
   };
 
   return (
-    <div className="flex w-full justify-center p-2 sm:p-4">
+          <div className="flex w-full justify-center p-4">
+
       <div className="w-full max-w-[600px] space-y-4">
         <div className="flex items-center justify-between px-2 mb-2">
           <div className="flex items-center gap-3">

@@ -81,7 +81,7 @@
     ];
 
     return (
-      <div className="flex w-full justify-center p-2 sm:p-4">
+      <div className="flex w-full justify-center p-4">
         <Card className="w-full max-w-[600px] border-none shadow-md rounded-[24px] sm:rounded-[32px] overflow-hidden bg-white">
           <CardHeader className="p-5 sm:p-8 pb-3">
             <div className="flex items-center gap-3 mb-1">
